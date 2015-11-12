@@ -65,7 +65,7 @@ public class SimpleAdapterWeakRef extends ArrayAdapter<String> {
         BitmapDrawable drawable = getBitmapFromCache(url);
         if (drawable != null) {
             image.setImageDrawable(drawable);
-        } else if (cancelPotentialWork(url, image)){
+        } else if (cancelPotentialWork(url, image)) {
             BitmapWorkerTask task = new BitmapWorkerTask(image);
             AsyncDrawable asyncDrawable = new AsyncDrawable(getContext().getResources(), mLoadingBitmap, task);
             image.setImageDrawable(asyncDrawable);
@@ -134,7 +134,7 @@ public class SimpleAdapterWeakRef extends ArrayAdapter<String> {
 
         @Override
         protected BitmapDrawable doInBackground(String... params) {
-            String imageUrl = params[0];
+            imageUrl = params[0];
             Bitmap bitmap = downloadBitmap(imageUrl);
             BitmapDrawable drawable = new BitmapDrawable(getContext().getResources(), bitmap);
             addBitmapToCache(imageUrl, drawable);
